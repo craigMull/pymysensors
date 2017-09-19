@@ -10,7 +10,11 @@ from collections import deque
 # pylint: disable=import-error, no-name-in-module
 from distutils.version import LooseVersion as parse_ver
 from importlib import import_module
-from queue import Queue
+try:
+    from Queue import Queue, Empty 
+except:
+    from queue import Queue, Empty
+# from queue import Queue
 from timeit import default_timer as timer
 
 import voluptuous as vol
